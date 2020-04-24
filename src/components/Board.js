@@ -29,10 +29,11 @@ const Board = ({url}) => {
   console.log("this is cardList", cardList, cardList[2]);
 
   const cardCollection = cardList.map((card) => {
-    return (
+    console.log(card);
+    return ( 
         <Card
-        text={card.text}
-        emoji={card.emoji}
+        text={card.card.text}
+        emoji={card.card.emoji}
         />
     );
   });
