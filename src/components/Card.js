@@ -6,22 +6,13 @@ const emoji = require("emoji-dictionary");
 // Build the Card component to display a single 
 // inspirational quote and optional emoji
 
-const Card = ({cards}) => {
-	const newCards = cards.map((card) => (
-		<p >{card.text} {card.emoji} </p>
-	))
-
-  // const newCards = cards.map((card) => (
-  //   card.text
-  // ));
-
-  // emoji.getUnicode("heart_eyes");
-  // 😍
+const Card = (props) => {
 
   return (
     <div className="card card__content card__content-text">
       {/* {emoji.getUnicode("heart_eyes")} */}
-      {newCards}
+      {props.card.text}
+      {props.card.emoji}
     </div>
   )
 }

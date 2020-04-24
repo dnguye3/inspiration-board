@@ -8,6 +8,22 @@ import NewCardForm from './NewCardForm';
 import CARD_DATA from '../data/card-data.json';
 
 const Board = ({cards}) => {
+
+  const cardCollection = cards.map((card, i) => {
+    return (
+      <li key={i}>
+        <Card
+        id={card.id}
+        text={card.text}
+        emoji={card.emoji}
+        />
+      </li>
+    );
+  });
+    // <p >{card.text} {card.emoji} </p>
+  
+
+
   // const [cardList, setCardList] = useState([]);
   // const [errorMessage, setErrorMessage] = useState(null);
 
@@ -24,12 +40,26 @@ const Board = ({cards}) => {
   //       console.log(errorMessage)
   //     });
   // }, []);
+
+  // const studentComponents = props.students.map((student, i) => {
+  //   return (
+  //     <li key={i}>
+  //       <Student
+  //         fullName={student.fullName}
+  //         email={student.email}
+  //         present={student.present}
+  //         id={student.id}
+  //         onUpdateStudent={props.onUpdateStudent}
+  //       />
+  //     </li>
+  //   );
+  // });
   
 
   return (
-    <div>
+    <div className="board">
       <Board
-      Board
+      Board={cardCollection}
       />
     </div>
   )
