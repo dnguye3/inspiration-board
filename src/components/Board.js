@@ -7,9 +7,28 @@ import Card from './Card';
 import NewCardForm from './NewCardForm';
 import CARD_DATA from '../data/card-data.json';
 
-const Board = (props) => {
+const Board = ({url}) => {
 
-  const cardCollection = CARD_DATA.cards.map((card) => {
+  const [cardList, setCardList] = useState([]);
+  const [errorMessage, setErrorMessage] = useState(null);
+
+  useEffect(() => {
+    axios.get(url)
+      .then((response) => {
+        const apiCardList = response.data;
+        console.log("it works", response.data);
+        setCardList(apiCardList);
+      })
+      .catch((error) => {
+        const errorMessage = error.message
+        setErrorMessage(errorMessage);
+        console.log(errorMessage)
+      });
+  }, []);
+  
+  console.log("this is cardList", cardList, cardList[2]);
+
+  const cardCollection = cardList.map((card) => {
     return (
         <Card
         text={card.text}
@@ -21,22 +40,6 @@ const Board = (props) => {
   
 
 
-  // const [cardList, setCardList] = useState([]);
-  // const [errorMessage, setErrorMessage] = useState(null);
-
-  // useEffect(() => {
-  //   axios.get(url)
-  //     .then((response) => {
-  //       const apiCardList = response.data;
-  //       console.log("it works", response.data);
-  //       setCardList(apiCardList);
-  //     })
-  //     .catch((error) => {
-  //       const errorMessage = error.message
-  //       setErrorMessage(errorMessage);
-  //       console.log(errorMessage)
-  //     });
-  // }, []);
 
   // const studentComponents = props.students.map((student, i) => {
   //   return (
