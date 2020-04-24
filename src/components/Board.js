@@ -21,7 +21,12 @@ const Board = ({ url }) => {
             // id: item.card.id,
             // text: item.card.text,
             // emoji: item.card.emoji
+
+            // so yeah for here i gave up trying to get card to work outside of the api call
+            // i don't know why we can't perform this mapping outside of the call, hope to get answers
+            // at roundtable
             <Card
+              key={item.card.id}
               id={item.card.id}
               text={item.card.text}
               emoji={item.card.emoji}
@@ -39,55 +44,23 @@ const Board = ({ url }) => {
       });
   }, []);
 
-  const cardCollection = cardList.map((card) => {
-    console.log(card);
-    return ( 
-        <Card
-        text={card.card.text}
-        emoji={card.card.emoji}
-        />
-    );
-  });
+  // const cardCollection = cardList.map((card) => {
+  //   console.log(card);
+  //   return ( 
+  //      card
+  //       // <Card
+  //       // text={card.text}
+  //       // emoji={card.emoji}
+  //       // />
+  //   );
+  // });
     // <p >{card.text} {card.emoji} </p>
   
 
   console.log("this is cardList", cardList);
 
-  // console.log("this is cardcollection", cardCollection);
-  // <p >{card.text} {card.emoji} </p>
-
-  // const parsedCardCollection = cardList.map((card) => {
-  //   <Card
-  //     id={card.id}
-  //     text={card.text}
-  //     emoji={card.emoji}
-  //   />
-  // })
-
-
-  // const studentComponents = props.students.map((student, i) => {
-  //   return (
-  //     <li key={i}>
-  //       <Student
-  //         fullName={student.fullName}
-  //         email={student.email}
-  //         present={student.present}
-  //         id={student.id}
-  //         onUpdateStudent={props.onUpdateStudent}
-  //       />
-  //     </li>
-  //   );
-  // });
-
-
   return (
     <div className="board">
-      {/* {
-        cardList.map((card) => (
-          <Card prop="card" />
-        ))
-      } */}
-      {/* {parsedCardCollection} */}
       {cardList}
     </div>
   )
