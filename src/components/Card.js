@@ -9,11 +9,11 @@ const emoji = require("emoji-dictionary");
 const Card = (props) => {
 
   return (
-    <div className="card card__content card__content-text">
+    <div className="card card__content">
       {/* {emoji.getUnicode("heart_eyes")} */}
-      {props.text}
-      <p className="card__content-emoji">{emoji.getUnicode(`${props.emoji}`)}</p>
-      
+      <p className="card__content-text">
+      {props.text}<span className="card__content-emoji"> {emoji.getUnicode(`${props.emoji}`)}</span>
+      </p>
     </div>
   )
 }
