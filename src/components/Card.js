@@ -11,15 +11,14 @@ const Card = (props) => {
   return (
     <div className="card card__content card__content-text">
       {/* {emoji.getUnicode("heart_eyes")} */}
-      {props.card.text}
-      {props.card.emoji}
+      {props.text}
+      {emoji.getUnicode(`${props.emoji}`)}
     </div>
   )
 }
 
 Card.propTypes = {
-  id: PropTypes.number.isRequired,
-  text: PropTypes.string.isRequired,
+  text: PropTypes.string,
   emoji: PropTypes.string,
 };
 

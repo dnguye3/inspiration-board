@@ -6,29 +6,11 @@ import Card from './components/Card';
 const emoji = require("emoji-dictionary");
 
 
-const cards = [
-  {
-    id: 5050,
-    text: "Life is good!",
-    emoji: emoji.getUnicode("heart_eyes")
-  },
-  {
-    id: 5125,
-    text: "Hala and Diana are doing great!",
-    emoji: "\"Heart Decoration\""
-  },
-  {
-    id: 5039,
-    text: "Be good to people for no reason",
-    emoji: emoji.getUnicode("heart_eyes")
-  }
-];
-
 
 const App = () => {
 
-  const [cardList, setCardList] = useState(cards);
-  console.log("cardList", cardList)
+  // const [cardList, setCardList] = useState(cards);
+  // console.log("cardList", cardList)
 
 
   return (
@@ -40,7 +22,6 @@ const App = () => {
       <Board
         url="https://inspiration-board.herokuapp.com/boards/Hala&Diana/cards"
         boardName={`Hala&Diana`}
-        cards={cardList}
       />
 
     </section>
