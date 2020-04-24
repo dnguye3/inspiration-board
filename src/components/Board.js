@@ -18,10 +18,8 @@ const Board = ({ url }) => {
         const apiCardList = response.data;
         let cardCollection = apiCardList.map((item) => {
           return (
-            // id: item.card.id,
-            // text: item.card.text,
-            // emoji: item.card.emoji
             <Card
+              key={item.card.id}
               id={item.card.id}
               text={item.card.text}
               emoji={item.card.emoji}
@@ -39,44 +37,10 @@ const Board = ({ url }) => {
       });
   }, []);
 
-
   console.log("this is cardList", cardList);
-
-  // console.log("this is cardcollection", cardCollection);
-  // <p >{card.text} {card.emoji} </p>
-
-  // const parsedCardCollection = cardList.map((card) => {
-  //   <Card
-  //     id={card.id}
-  //     text={card.text}
-  //     emoji={card.emoji}
-  //   />
-  // })
-
-
-  // const studentComponents = props.students.map((student, i) => {
-  //   return (
-  //     <li key={i}>
-  //       <Student
-  //         fullName={student.fullName}
-  //         email={student.email}
-  //         present={student.present}
-  //         id={student.id}
-  //         onUpdateStudent={props.onUpdateStudent}
-  //       />
-  //     </li>
-  //   );
-  // });
-
 
   return (
     <div className="board">
-      {/* {
-        cardList.map((card) => (
-          <Card prop="card" />
-        ))
-      } */}
-      {/* {parsedCardCollection} */}
       {cardList}
     </div>
   )
