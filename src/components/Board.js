@@ -1,4 +1,4 @@
-import React, { Component , useState, useEffect} from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
@@ -7,7 +7,7 @@ import Card from './Card';
 import NewCardForm from './NewCardForm';
 import CARD_DATA from '../data/card-data.json';
 
-const Board = ({url}) => {
+const Board = ({ url }) => {
 
   const [cardList, setCardList] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -16,8 +16,17 @@ const Board = ({url}) => {
     axios.get(url)
       .then((response) => {
         const apiCardList = response.data;
-        console.log("it works", response.data);
-        setCardList(apiCardList);
+        let cardCollection = apiCardList.map((item) => {
+          return ({
+            id: item.card.id,
+            text: item.card.text,
+            emoji: item.card.emoji
+
+          });
+        });
+        console.log("this is Card Collection:", cardCollection);
+        console.log("this is response", response);
+        setCardList(cardCollection);
       })
       .catch((error) => {
         const errorMessage = error.message
@@ -25,20 +34,20 @@ const Board = ({url}) => {
         console.log(errorMessage)
       });
   }, []);
-  
-  console.log("this is cardList", cardList, cardList[2]);
 
-  const cardCollection = cardList.map((card) => {
-    return (
-        <Card
-        text={card.text}
-        emoji={card.emoji}
-        />
-    );
-  });
-    // <p >{card.text} {card.emoji} </p>
-  
 
+  console.log("this is cardList", cardList);
+
+  // console.log("this is cardcollection", cardCollection);
+  // <p >{card.text} {card.emoji} </p>
+
+  // const parsedCardCollection = cardList.map((card) => {
+  //   <Card
+  //     id={card.id}
+  //     text={card.text}
+  //     emoji={card.emoji}
+  //   />
+  // })
 
 
   // const studentComponents = props.students.map((student, i) => {
@@ -54,11 +63,16 @@ const Board = ({url}) => {
   //     </li>
   //   );
   // });
-  
+
 
   return (
     <div className="board">
-      {cardCollection}
+      {
+        cardList.map((card) => (
+          <Card prop="card" />
+        ))
+      }
+      {/* {parsedCardCollection} */}
     </div>
   )
 };
