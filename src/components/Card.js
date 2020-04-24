@@ -11,11 +11,12 @@ const Card = ({emoji, id, text}) => {
 
   return (
     <div className="card card__content">
-    {/* {emoji.getUnicode("heart_eyes")} */}
-    <p className="card__content-text">
-    {text}
-    </p>
-    <span className="card__content-emoji">{emojis.getUnicode(`${emoji}`)}</span>
+      <p className="card__content-text">
+        {text}
+      </p>
+      <span className="card__content-emoji">
+        {emojis.getUnicode(`${emoji}`)}
+      </span>
     </div>
   )
 }
