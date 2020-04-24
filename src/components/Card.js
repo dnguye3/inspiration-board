@@ -17,8 +17,13 @@ const Card = ({emoji, id, text}) => {
       <span className="card__content-emoji">
         {emojis.getUnicode(`${emoji}`)}
       </span>
+      <button
+        // onClick={() => props.deleteStudentCallback(props.id)}
+        className="card__delete"
+      >✨ Take this card ✨</button>
     </div>
   )
+  
 }
 
 Card.propTypes = {
