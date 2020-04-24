@@ -18,7 +18,6 @@ const App = () => {
       <header className="header">
         <h1 className="header__h1"><span className="header__text">Inspiration Board</span></h1>
       </header>
-      {console.log('please work')};
       <Board
         url="https://inspiration-board.herokuapp.com/boards/Hala&Diana/cards"
         boardName={`Hala&Diana`}
