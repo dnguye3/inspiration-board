@@ -17,12 +17,16 @@ const Board = ({ url }) => {
       .then((response) => {
         const apiCardList = response.data;
         let cardCollection = apiCardList.map((item) => {
-          return ({
-            id: item.card.id,
-            text: item.card.text,
-            emoji: item.card.emoji
-
-          });
+          return (
+            // id: item.card.id,
+            // text: item.card.text,
+            // emoji: item.card.emoji
+            <Card
+              id={item.card.id}
+              text={item.card.text}
+              emoji={item.card.emoji}
+            />
+          );
         });
         console.log("this is Card Collection:", cardCollection);
         console.log("this is response", response);
@@ -67,12 +71,13 @@ const Board = ({ url }) => {
 
   return (
     <div className="board">
-      {
+      {/* {
         cardList.map((card) => (
           <Card prop="card" />
         ))
-      }
+      } */}
       {/* {parsedCardCollection} */}
+      {cardList}
     </div>
   )
 };
