@@ -12,7 +12,8 @@ const Card = (props) => {
     <div className="card card__content card__content-text">
       {/* {emoji.getUnicode("heart_eyes")} */}
       {props.text}
-      {emoji.getUnicode(`${props.emoji}`)}
+      <p className="card__content-emoji">{emoji.getUnicode(`${props.emoji}`)}</p>
+      
     </div>
   )
 }
