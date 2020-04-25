@@ -12,7 +12,8 @@ const Board = ({ url }) => {
   const [errorMessage, setErrorMessage] = useState(null);
 
   const loadCards = () => {
-    axios.get(url)
+    axios
+      .get(url)
       .then((response) => {
         const apiCardList = response.data;
         let cardCollection = apiCardList.map((item) => {
@@ -37,7 +38,7 @@ const Board = ({ url }) => {
       });
   };
 
-  const renderCards = useEffect(() => {
+  useEffect(() => {
     loadCards();
   }, []);
 
@@ -62,26 +63,27 @@ const Board = ({ url }) => {
   // });
   const deleteCard = (id) => {
     // setCardList(renderCards);
-    console.log(
-      `It\'s going through cardList through deleteCardCallback`,
-      cardList
-    );
+    // console.log(
+    //   `It\'s going through cardList through deleteCardCallback`,
+    //   cardList
+    // );
 
-    const newCardList = cardList.filter((card) => {
-      return card.id !== id;
-    });
-    console.log(`this is the new card list`, newCardList);
-    if (newCardList.length < cardList.length) {
-      axios
-        .delete(`https://inspiration-board.herokuapp.com/cards/${id}`)
-        .then((response) => {
-          setCardList(newCardList);
-        })
-        .catch((error) => {
-          setErrorMessage(`Unable to delete card ${id}`);
-        });
-    }
-    setCardList(renderCards)
+    // const newCardList = cardList.filter((card) => {
+    //   return card.id !== id;
+    // });
+    // console.log(`this is the new card list`, newCardList);
+    // if (newCardList.length < cardList.length) {
+
+    // LEE SAVES THE DAY
+    axios
+      .delete(`https://inspiration-board.herokuapp.com/cards/${id}`)
+      .then((response) => {
+        loadCards();
+      })
+      .catch((error) => {
+        setErrorMessage(`Unable to delete card ${id}`);
+      });
+    // }
   };
 
   // const loadCards = () => {
