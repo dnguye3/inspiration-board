@@ -62,10 +62,12 @@ const Board = ({ url }) => {
   };
 
   return (
-    <div>
-      <NewCardForm addCardCallback={postCard} />
-      <div className="board">{cardList}</div>
-    </div>
+      <div><NewCardForm addCardCallback={postCard} />
+      <div className="board">
+        {cardList}  
+      </div>
+      </div>
+
   );
 };
 

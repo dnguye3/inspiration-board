@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import "./NewCardForm.css";
+import emojis from 'emoji-dictionary';
+
+
+const EMOJI_LIST = ["", "turtle", "heart_eyes", "beer", "clap", "sparkling_heart", "dog", "heart_eyes_cat"]
 
 const NewCardForm = ({addCardCallback}) => {
   const [cardFields, setCardFields] = useState({
@@ -28,11 +32,10 @@ const NewCardForm = ({addCardCallback}) => {
   };
 
   return (
+    <header className="new-card-form__header "> Add A Card
     <form onSubmit={onFormSubmit} className="new-card-form new-card-form__form">
-      <header className="new-card-form__header">Submit a card!</header>
       {/* text input */}
       <label htmlFor="text" className="new-card-form__form-label">
-        Your message:
       </label>
       <input
         placeholder="text"
@@ -43,15 +46,19 @@ const NewCardForm = ({addCardCallback}) => {
       />
       {/* emoji */}
       <label htmlFor="emoji" className="new-card-form__form-label">
-        Emoji:
       </label>
-      <input
+      <select 
+        name="emoji"
         placeholder="emoji"
         onChange={onInputChange}
-        name="emoji"
         value={cardFields.emoji}
-        className="new-card-form__form-label new-card-form__form-textarea"
-      />
+        className="new-card-form__form-label new-card-form__form-select"
+      >   
+      <option value="" selected disabled hidden>Choose an emoji</option>
+        {EMOJI_LIST.map(emoji =>
+        <option key={emoji} value={emoji}>{emojis.getUnicode(`${emoji}`)}</option>
+      )};
+      </select>
       {/* submit */}
       <input
         type="submit"
@@ -59,6 +66,7 @@ const NewCardForm = ({addCardCallback}) => {
         className="new-card-form__form-button"
       />
     </form>
+    </header>
   );
 };
 
