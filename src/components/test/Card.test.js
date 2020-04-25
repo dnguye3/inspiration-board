@@ -1,7 +1,6 @@
 import React from 'react';
 import { render, cleanup } from '@testing-library/react'
 import Card from '../Card';
-import Board from '../Board';
 
 describe('Card', () => {
   test('that it matches the existing snapshot', () => {
@@ -19,15 +18,14 @@ describe('Card', () => {
     expect(asFragment()).toMatchSnapshot();
     cleanup();
   });
-  
+
   test('The "DeleteCardCallback" prop function is called when the `✨Take This Card✨` button is clicked on', () => {
 
     // Arrange
     // Create a mock callback function
     const takeThisCard = jest.fn();
 
-    // Render a Student
-    //   note the markAbsent callback function
+    // Render card
     const container = render(
       <Card
         key={3}

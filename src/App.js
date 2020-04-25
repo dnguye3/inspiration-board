@@ -1,14 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./App.css";
-import axios from "axios";
 import Board from "./components/Board";
-import Card from "./components/Card";
-const emoji = require("emoji-dictionary");
+
 
 const App = () => {
-  // const [cardList, setCardList] = useState(cards);
-  // console.log("cardList", cardList)
-
   return (
     <section>
       <header className="header">

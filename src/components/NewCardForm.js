@@ -1,19 +1,8 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
-import emojis from "emoji-dictionary";
 import "./NewCardForm.css";
 
-const EMOJI_LIST = [
-  "",
-  "heart_eyes",
-  "beer",
-  "clap",
-  "sparkling_heart",
-  "heart_eyes_cat",
-  "dog",
-];
-
-const NewCardForm = (props) => {
+const NewCardForm = ({addCardCallback}) => {
   const [cardFields, setCardFields] = useState({
     text: "",
     emoji: "",
@@ -30,7 +19,7 @@ const NewCardForm = (props) => {
   const onFormSubmit = (event) => {
     event.preventDefault();
 
-    props.addCardCallback(cardFields);
+    addCardCallback(cardFields);
 
     setCardFields({
       text: "",
@@ -71,6 +60,10 @@ const NewCardForm = (props) => {
       />
     </form>
   );
+};
+
+NewCardForm.propTypes = {
+  addCardCallback: PropTypes.func
 };
 
 export default NewCardForm;
