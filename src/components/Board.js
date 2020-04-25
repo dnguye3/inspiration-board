@@ -86,6 +86,18 @@ const Board = ({ url }) => {
     // }
   };
 
+  const postCard = (cardObject) => {
+    axios
+      .post(
+        `https://inspiration-board.herokuapp.com/boards/Hala&Diana/cards`,
+        cardObject)
+      .then((response) => {
+        loadCards();
+      })
+      .catch((error) => {
+        setErrorMessage(`Unable to post card`);
+      });
+  };
   // const loadCards = () => {
   //
   // }
@@ -114,7 +126,7 @@ const Board = ({ url }) => {
 
   return (
     <div>
-      <NewCardForm />
+      <NewCardForm addCardCallback={postCard} />
       <div className="board">{cardList}</div>
     </div>
   );
