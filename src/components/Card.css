@@ -17,6 +17,7 @@
 
 .card__content {
   grid-column-start: 2;
+  font-family: 'Permanent Marker', Helvetica, sans-serif;
 
   display: flex;
   flex-direction: column;
@@ -44,4 +45,13 @@
 .card__delete {
   align-self: start;
   font-family: 'Permanent Marker', Helvetica, sans-serif;
+  background-color: black;
+  border: 1px solid black;
+  color: white;
+}
+
+.card__delete:hover {
+  background-color: white;
+  border: 1px solid white;
+  color: black;
 }

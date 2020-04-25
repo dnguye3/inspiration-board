@@ -40,3 +40,8 @@
   font-family: 'Permanent Marker';
   color: white;
 }
+
+.new-card-form__form-button:hover {
+  background-color: white;
+  color: black;
+}
