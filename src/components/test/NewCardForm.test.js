@@ -15,4 +15,5 @@ describe('NewCardForm', () => {
     expect(asFragment()).toMatchSnapshot();
     cleanup();
   });
+
 });
