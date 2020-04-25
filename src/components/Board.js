@@ -38,45 +38,10 @@ const Board = ({ url }) => {
       });
   };
 
-  useEffect(() => {
-    loadCards();
-  }, []);
+  useEffect(() => {loadCards();}, []);
 
-  // const deleteCard = (id) => {
-  //   console.log(`It\'s going through cardList through deleteCardCallback`, {
-  //     cardList,
-  //   });
-
-  //   axios
-  //     .delete(`https://inspiration-board.herokuapp.com/cards/${id}`)
-  //     .then((response) => {
-  //       setErrorMessage(`Card ${id} deleted`);
-  //       setCardList(loadCards);
-  //     })
-  //     .catch((error) => {
-  //       setErrorMessage(`Unable to delete card ${id}`);
-  //     });
-  // };
-
-  // const newCardList = cardList.filter((card) => {
-  // return card.id !== id;
-  // });
   const deleteCard = (id) => {
-    // setCardList(renderCards);
-    // console.log(
-    //   `It\'s going through cardList through deleteCardCallback`,
-    //   cardList
-    // );
-
-    // const newCardList = cardList.filter((card) => {
-    //   return card.id !== id;
-    // });
-    // console.log(`this is the new card list`, newCardList);
-    // if (newCardList.length < cardList.length) {
-
-    // LEE SAVES THE DAY
-    axios
-      .delete(`https://inspiration-board.herokuapp.com/cards/${id}`)
+    axios.delete(`https://inspiration-board.herokuapp.com/cards/${id}`)
       .then((response) => {
         loadCards();
       })
@@ -98,31 +63,6 @@ const Board = ({ url }) => {
         setErrorMessage(`Unable to post card`);
       });
   };
-  // const loadCards = () => {
-  //
-  // }
-  //
-  // useEffect({loadCards}, []);
-
-  // delete card axios pseudocode
-  //   const deleteStudent = (id) => {
-  //   const newStudentList = studentList.filter((student) => {
-  //     return student.id !== id;
-  //   });
-
-  //   if (newStudentList.length < studentList.length) {
-  //     axios.delete(`${ API_URL_BASE }/${ id }`)
-  //       .then((response) => {
-  //         setErrorMessage(`Student ${ id } deleted`);
-  //       })
-  //       .catch((error) => {
-  //         setErrorMessage(`Unable to delete student ${ id }`);
-  //       })
-  //     setStudentList(newStudentList);
-  //   }
-  // }
-
-  // delete button callback
 
   return (
     <div>
@@ -132,8 +72,8 @@ const Board = ({ url }) => {
   );
 };
 
-// Board.propTypes = {
-
-// };
+Board.propTypes = {
+  url: PropTypes.string
+};
 
 export default Board;

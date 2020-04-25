@@ -2,10 +2,6 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./Card.css";
 import emojis from "emoji-dictionary";
-// const emoji = require("emoji-dictionary");
-
-// Build the Card component to display a single
-// inspirational quote and optional emoji
 
 const Card = ({ emoji, id, text, deleteCardCallback }) => {
   return (
@@ -18,7 +14,7 @@ const Card = ({ emoji, id, text, deleteCardCallback }) => {
         onClick={() => {
           deleteCardCallback(id)
         }}
-        className="card__delete"
+        className="card__delete card__delete:hover"
       >
         ✨ Take this card ✨
       </button>

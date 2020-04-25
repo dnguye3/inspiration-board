@@ -14,8 +14,6 @@ const EMOJI_LIST = [
 ];
 
 const NewCardForm = (props) => {
-  // onclickcallback prop & function
-  // within callback function in Board, we will need axios POST request
   const [cardFields, setCardFields] = useState({
     text: "",
     emoji: "",
@@ -65,6 +63,7 @@ const NewCardForm = (props) => {
         value={cardFields.emoji}
         className="new-card-form__form-label new-card-form__form-textarea"
       />
+      {/* submit */}
       <input
         type="submit"
         value="Add Card"
