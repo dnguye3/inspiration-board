@@ -27,8 +27,6 @@ const Board = ({ url }) => {
             />
           );
         });
-        console.log("this is Card Collection:", cardCollection);
-        console.log("this is response", response);
         setCardList(cardCollection);
       })
       .catch((error) => {
