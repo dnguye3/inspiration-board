@@ -4,7 +4,7 @@ import "./NewCardForm.css";
 import emojis from 'emoji-dictionary';
 
 
-const EMOJI_LIST = ["", "turtle", "heart_eyes", "beer", "clap", "sparkling_heart", "dog", "heart_eyes_cat"]
+const EMOJI_LIST = ["", "heart_eyes", "beer", "clap", "sparkling_heart", "dog", "heart_eyes_cat"]
 
 const NewCardForm = ({addCardCallback}) => {
   const [cardFields, setCardFields] = useState({
@@ -32,27 +32,31 @@ const NewCardForm = ({addCardCallback}) => {
   };
 
   return (
-    <header className="new-card-form__header "> Add A Card
+    <header className="new-card-form__header"> 
+    <p className="new-card-form__form-button"> Submit your own card~ </p>
     <form onSubmit={onFormSubmit} className="new-card-form new-card-form__form">
       {/* text input */}
-      <label htmlFor="text" className="new-card-form__form-label">
-      </label>
+    <div class="group">
+      <label htmlFor="text"></label>
       <input
-        placeholder="text"
+        type="text"
+        placeholder="your message"
         onChange={onInputChange}
         name="text"
         value={cardFields.text}
         className=" new-card-form__form-textarea"
       />
+      <span class="highlight"></span>
+      <span class="bar"></span>
+    </div>
       {/* emoji */}
-      <label htmlFor="emoji" className="new-card-form__form-label">
-      </label>
+      <label htmlFor="emoji"></label>
       <select 
         name="emoji"
         placeholder="emoji"
         onChange={onInputChange}
         value={cardFields.emoji}
-        className="new-card-form__form-label new-card-form__form-select"
+        className="new-card-form__form-select"
       >   
       <option value="" selected disabled hidden>Choose an emoji</option>
         {EMOJI_LIST.map(emoji =>
